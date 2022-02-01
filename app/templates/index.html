@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{url_for('static', filename='assets/img/favicon.png')}}">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/img/favicon.png')}}">
+  <title>
+    Plataforma PEOO
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="{{url_for('static', filename='assets/css/nucleo-icons')}}" rel="stylesheet" />
+  <link href="{{url_for('static', filename='assets/css/nucleo-svg')}}" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="{{url_for('static', filename='assets/css/material-dashboard.css?v=3.0.0')}}" rel="stylesheet" />
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+    <div class="sidenav-header">
+      <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+      <a class="navbar-brand m-0" href="index.html" target="_self">
+        <img src="{{url_for('static', filename='assets/img/logo-ct.png')}}" class="navbar-brand-img h-100" alt="main_logo">
+        <span class="ms-1 font-weight-bold text-white">Plataforma PEOO</span>
+      </a>
+    </div>
+    <hr class="horizontal light mt-0 mb-2">
+    <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
+      <ul class="navbar-nav">
+		
+        <li class="nav-item">
+          <a class="nav-link text-white active bg-gradient-primary" href="index.html">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">dashboard</i>
+            </div>
+            <span class="nav-link-text ms-1">Aulas recentes</span>
+          </a>
+        </li>
+		
+		<li class="nav-item">
+          <a class="nav-link text-white " href="pages/listar-todas-aulas.html">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">list</i>
+            </div>
+            <span class="nav-link-text ms-1">Listar todas as aulas</span>
+          </a>
+        </li>
+		
+		<li class="nav-item">
+          <a class="nav-link text-white " href="#">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">dashboard_customize</i>
+            </div>
+            <span class="nav-link-text ms-1">Postar aula</span>
+          </a>
+        </li>
+		
+		<li class="nav-item">
+          <a class="nav-link text-white " href="pages/desempenho.html">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">table_view</i>
+            </div>
+            <span class="nav-link-text ms-1">Desempenho dos alunos</span>
+          </a>
+        </li>
+		
+
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Materiais</h6>
+        </li>
+		
+		<li class="nav-item">
+          <a class="nav-link text-white " href="pages/listar-materiais.html">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">article</i>
+            </div>
+            <span class="nav-link-text ms-1">Listar materiais</span>
+          </a>
+        </li>
+		
+		<li class="nav-item">
+          <a class="nav-link text-white " href="#">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">note_add</i>
+            </div>
+            <span class="nav-link-text ms-1">Postar material</span>
+          </a>
+        </li>
+       
+      </ul>
+    </div>
+	
+    <div class="sidenav-footer position-absolute w-100 bottom-0 ">
+      <div class="mx-3">
+        <a class="btn bg-gradient-primary mt-4 w-100" href="index.html" type="button">Bem-vindo a plataforma!</a>
+      </div>
+    </div>
+  </aside>
+  
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    
+	<!-- Menu superior -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-2 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Principal</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Aulas recentes</li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">Aulas recentes</h6>
+        </nav>
+		
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          
+          <ul class="navbar-nav ms-md-auto pe-md-3 d-flex align-items-center justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+              <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+                <span class="d-sm-inline d-none">Sair</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+		
+      </div>
+    </nav>
+	<hr>
+    <!-- Área de conteúdo -->
+    <div class="container-fluid py-4">
+      <div class="row mt-4">
+	  
+	    <!-- Área dos cards -->
+        <div class="col-lg-4 col-md-6 mt-4 mb-4">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <!-- Aqui entra o vídeo -->
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Título</h6>
+              <p class="text-sm ">Descrição</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm"> Data pub. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+		
+        <div class="col-lg-4 col-md-6 mt-4 mb-4">
+          <div class="card z-index-2  ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-primary shadow-success border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <!-- Aqui entra o vídeo -->
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Título</h6>
+              <p class="text-sm ">Descrição</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm"> Data pub. </p>
+              </div>
+            </div>
+          </div>
+        </div>
+		
+        <div class="col-lg-4 mt-4 mb-3">
+          <div class="card z-index-2 ">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-primary shadow-dark border-radius-lg py-3 pe-1">
+                <div class="chart">
+                  <!-- Aqui entra o vídeo -->
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <h6 class="mb-0 ">Título</h6>
+              <p class="text-sm ">Descrição</p>
+              <hr class="dark horizontal">
+              <div class="d-flex ">
+                <i class="material-icons text-sm my-auto me-1">schedule</i>
+                <p class="mb-0 text-sm">Data pub.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Scripts utilizados -->
+  <script src="{{url_for('static', filename='assets/js/core/popper.min.js')}}"></script>
+  <script src="{{url_for('static', filename='assets/js/core/bootstrap.min.js')}}"></script>
+  <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="./assets/js/plugins/chartjs.min.js"></script>
+  
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="./assets/js/material-dashboard.min.js?v=3.0.0"></script>
+  
+</body>
+
+</html>

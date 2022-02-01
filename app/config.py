@@ -1,0 +1,3 @@
+GOOGLE_USERID='***'
+GOOGLE_KEY='**'
+SECRET_KEY='*'

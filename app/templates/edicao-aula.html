@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include "components/head.html" %}
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+  {% include "components/navbar.html" %}
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg "><br> 
+    
+    <!-- Menu superior -->
+    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
+      <div class="container-fluid py-1 px-3">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-2 px-0 me-sm-6 me-5">
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Edição</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Aulas</li>
+          </ol>
+          <h6 class="font-weight-bolder mb-0">Edição de aulas</h6>
+        </nav>
+        {% with mensagens = get_flashed_messages(with_categories = True) %}
+        {% if mensagens %}
+        {% for categoria, mensagem in mensagens %}
+          <div class="alert alert-{{categoria}}" role="alert" style="margin: auto 0;">
+            {{ mensagem }}
+          </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+          
+          <ul class="navbar-nav ms-md-auto pe-md-3 d-flex align-items-center justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+              <span class="d-sm-inline d-none">Bem vindo, {{session['infos']['nome_usual']}}</span>
+            </li>
+            <li class="nav-item d-flex align-items-center">
+              <a href="{{ url_for('logout') }}" class="nav-link text-body font-weight-bold px-0">
+                <i class="fa fa-user me-sm-1"></i>
+                <span class="d-sm-inline d-none">Sair</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+      </div>
+    </nav>
+    <hr>
+    <!-- Área de conteúdo -->
+    <div class="content overflow"> 
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                  <div class="chart">
+                    <h5 class="text-white card-title text-center">EDIÇÃO DE AULA</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <form method="POST" action="/edicao-aula/{{aula[0]}}/">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Título da aula</label>
+                          <input type="text" class="form-control" name="Titulo" value="{{ aula[2] }}">
+                        </div>
+                      </div>   
+                      <div class="row">
+						  <div class="col-md-12">
+							<div class="form-group">
+							  <div class="form-group">
+								<label class="bmd-label-floating">Descrição da aula</label>
+								<textarea name="Descricao" class="form-control" rows="5">{{aula[3]}}</textarea>
+							  </div>
+							</div>
+						  </div>
+					  </div>
+                    </div>
+					
+
+                  <div class="form-group mt-5">
+                    <label class="bmd-label-floating">Link da aula</label>
+                    <input type="text" class="form-control mb-4" name="Link" value="{{aula[4]}}">
+                       
+                    <button type="submit" class="btn bg-gradient-primary btn-fill pull-right">Editar aula</button>
+                  </div>
+                </form>
+				
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts utilizados -->
+  <script src="{{ url_for('static', filename='/assets/js/core/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/js/core/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/js/plugins/chartjs.min.js') }}"></script>
+  
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{ url_for('static', filename='assets/js/material-dashboard.min.js') }}"></script>
+  
+</body>
+
+</html>    

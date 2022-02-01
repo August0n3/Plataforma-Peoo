@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include "components/head.html" %}
+</head>
+
+<body class="bg-gray-200">
+
+  <main class="main-content  mt-0">
+    <section>
+      <div class="page-header min-vh-100" style="background-image: url('https://s2.glbimg.com/bEK4UeQrAPEnoDDf0ADkw66TCLc=/0x0:7952x5304/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2020/E/R/hU4DvBTwSui6ZeYswlCQ/claudio-schwarz-purzlbaum-xk-m7wvugls-unsplash.jpg')">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 d-lg-flex d-none h-100 ml-5 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
+              <h2 class="text-primary" style="text-shadow: #000 2px 3px 2px;">O que é a Plataforma PEOO?</h2>
+              <p class="mb-0 text-justify">A Plataforma PEOO é uma aplicação web que reúne aulas da disciplina de Programação Estruturada e Orientada a Objetos. Os grandes contemplados são os alunos de Informática que cursam a disciplina - no IFRN-Campus Apodi - e o(s) professor(es) que lecionam esta.</p><br>
+              <h2 class="text-primary" style="text-shadow: #000 2px 3px 2px;">Quais as vantagens?</h2>
+              <p class="mb-0 text-justify">A plataforma dispõe várias ferramentas para a prática docente, como estatísticas de desempenho e todas as funcionalidades necessárias para comportar aulas, materiais, dúvidas dos alunos e outros. Para os alunos, a plataforma abrange uma comunidade interativa, com aulas e materiais de qualidade sobre a disciplina, além de contar com um layout interativo/intuitivo.</p><br>
+              <h2 class="text-primary" style="text-shadow: #000 2px 3px 2px;">Quem são os desenvolvedores?</h2>
+              <p class="mb-0 text-justify">A Plataforma PEOO foi desenvolvido por um grupo de alunos do 4° ano de Informática do IFRN-Campus Apodi (Turma 4.8401.1V).</p>
+            </div>
+            <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
+              <div class="card z-index-0 fadeIn3 fadeInBottom">
+                <div class="card-header">
+                  <h4 class="font-weight-bolder">Login</h4>
+                  <p class="mb-0">Preencha seus dados para acessar a plataforma!</p>
+                </div>
+                <div class="card-body">
+                  {% with mensagens = get_flashed_messages(with_categories = True) %}
+                  {% if mensagens %}
+                  {% for categoria, mensagem in mensagens %}
+                    <div class="alert alert-{{categoria}}" role="alert">
+                      {{ mensagem }}
+                    </div>
+                  {% endfor %}
+                  {% endif %}
+                  {% endwith %}
+                  <form role="form" class="text-start" action="/auth/suap" method="post">
+                    <div class="input-group input-group-outline mb-3">
+                      <label for="Matricula" class="sr-only">Matrícula</label>
+                      <input type="text" class="form-control" name="Matricula" placeholder="Matricula">
+                    </div>
+
+                    <div class="input-group input-group-outline mb-3">
+                      <label for="Senha" class="sr-only">Senha</label>
+                      <input type="password" class="form-control" name="Senha" placeholder="Senha">
+                    </div>
+
+                    <div class="text-center">
+                      <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Entrar</button>
+                    </div>
+                    
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!--   Core JS Files   -->
+  <script src="{{ url_for('static', filename='assets/js/core/popper.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/core/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='/assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/plugins/chartjs.min.js') }}"></script>
+  
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="{{ url_for('static', filename='assets/js/material-dashboard.min.js') }}"></script>
+</body>
+
+</html>
